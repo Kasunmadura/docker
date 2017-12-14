@@ -1,4 +1,4 @@
-# this is for kasun java install docker
+# this is for java install docker with env 
 
 FROM centos:latest
 MAINTAINER kasunmadura@gmail.com
@@ -16,5 +16,5 @@ USER kasunr
 # user base env setup
 RUN cd ~ && echo "export  JAVA_HOME=/usr/java/jdk1.8.0_151/jre" >> /home/kasunr/.bashrc
 
-## environment varibale 
+## environment varibale
 ENV JAVA_BIN /usr/java/jdk1.8.0_151/jre/bin
