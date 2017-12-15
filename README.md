@@ -1,4 +1,4 @@
-## Docker Command and Featuse  
+## Docker Command and Features 
 
 This repo will help you to get some undestanding on docker and it featuse
 
@@ -36,7 +36,7 @@ This repo will help you to get some undestanding on docker and it featuse
 
 ### connect volume
 This volume default mount point "/var/lib/docker/$dockerid/_data"
-And this not allow to add to Docker file because it should portable 
+And this not allow to add to Docker file because it should portable
 
     docker run -it --name voltest1 -v /data centos:latest /bin/bash
     docker run -it --name voltest2 -v /home/kasunr/docker/build/Voltest:/mydata centos:lastest /bin/bash
