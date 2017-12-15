@@ -32,3 +32,7 @@ This repo will help you to get some undestanding on docker and it featuse
 
     docker build image with docker file (-t tag )
     docker build -t ubuntu/apache2:v1 .
+
+### connect volume
+This volume default mount point /var/lib/docker/$dockerid/_data
+    docker run -it --name volt -v /data centos:latest /bin/bash
