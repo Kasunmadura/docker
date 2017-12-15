@@ -23,10 +23,11 @@
 
     docker run -d ubuntu/apache:v1 -p 8080:80
 
-#ssh to docker instance
+# ssh to docker instance
 
     docker attach dockername
     docker exec -it apacheweb6 bash
 
-    # docker build image with docker file (-t tag )
+    docker build image with docker file (-t tag )
     docker build -t ubuntu/apache2:v1 .
+    
