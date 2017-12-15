@@ -1,4 +1,4 @@
-## Docker Command and Features 
+## Docker Command and Features
 
 This repo will help you to get some undestanding on docker and it featuse
 
@@ -33,6 +33,10 @@ This repo will help you to get some undestanding on docker and it featuse
 
 ### docker build image with docker file (-t tag )
     docker build -t ubuntu/apache2:v1 .
+
+### docker network
+    docker network ls --no-trunc
+    docker network inspect bridge
 
 ### connect volume
 This volume default mount point "/var/lib/docker/$dockerid/_data"
