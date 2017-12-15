@@ -1,4 +1,6 @@
-## Docker test bed for kasun Rathnayaka
+## Docker Command and best featuse  
+
+This repo will help you to get some undestand in docker and it featuse 
 
 ### interractive mode with tty
 
@@ -30,4 +32,3 @@
 
     docker build image with docker file (-t tag )
     docker build -t ubuntu/apache2:v1 .
-    
