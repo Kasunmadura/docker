@@ -1,6 +1,6 @@
-## Docker Command and best featuse  
+## Docker Command and Featuse  
 
-This repo will help you to get some undestand in docker and it featuse 
+This repo will help you to get some undestanding on docker and it featuse
 
 ### interractive mode with tty
 
