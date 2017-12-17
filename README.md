@@ -48,7 +48,7 @@ This repo will help you to get undestanding on docker and it featuse
     docker network create --subnet 10.101.0.0/16 --gateway 10.101.0.1 --ip-range=10.101.4.0/24 --driver=bridge --label=kasun4network kasunbridge04
     docker run  -it --name nettest01 --network kasunbridge04 centos:latest /bin/bash
 
-### setup specific IP for container (not working for default brigde)
+### setup specific IP for container (Not working for default bridge)
 
     docker run  -id --name nettest07 --network kasunbridge04 --ip 10.101.4.100 centos:latest
 
