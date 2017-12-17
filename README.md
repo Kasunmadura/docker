@@ -51,8 +51,7 @@ This repo will help you to get undestanding on docker and it featuse
     docker run  -id --name nettest07 --network kasunbridge04 --ip 10.101.4.100 centos:latest
 
 #### Connect volume
-This volume default mount point "/var/lib/docker/$dockerid/_data"
-And this not allow to add to Docker file because it should portable
+This volume default mount point is "/var/lib/docker/$dockerid/_data" and this will not allow to add to Docker file because it should portable
 
     docker run -it --name voltest1 -v /data centos:latest /bin/bash
     docker run -it --name voltest2 -v /home/kasunr/docker/build/Voltest:/mydata centos:lastest /bin/bash
