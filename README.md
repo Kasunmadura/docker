@@ -50,6 +50,14 @@ This repo will help you to get undestanding on docker and it featuse
 
     docker run  -id --name nettest07 --network kasunbridge04 --ip 10.101.4.100 centos:latest
 
+### Docker Inspect
+
+    docker exec testdocker /bin/ps -ef | grep bash
+    docker top testdocker
+    docker exec -it apacheweb5  /bin/bash
+    docker stats apacheweb5
+
+        
 #### Connect volume
 This volume default mount point is "/var/lib/docker/$dockerid/_data" and this will not allow to add to Docker file because it should portable
 
