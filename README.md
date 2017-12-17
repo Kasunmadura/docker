@@ -25,6 +25,7 @@ This repo will help you to get undestanding on docker and it featuse
 #### Docker port EXPOSE
 
     docker run -d ubuntu/apache:v1 -p 8080:80
+    docker run -d ubuntu/nginx:v1 -p 8080:80 8443:443
     docker run -d ubuntu/apache:v1 -P
 
 #### SSH to docker instance
@@ -57,7 +58,15 @@ This repo will help you to get undestanding on docker and it featuse
     docker exec -it apacheweb5  /bin/bash
     docker stats apacheweb5
 
-        
+### Removing previous containers
+    docker rm container_name_or_id
+    docker ps -a -q
+    docker ps -qa | wc -l
+    docker rm 'docker ps -aq'
+    for i in $(docker ps -qa);do docker rm "$i";done
+    cd /var/lib/docker/containers | rm dockerfile
+
+
 #### Connect volume
 This volume default mount point is "/var/lib/docker/$dockerid/_data" and this will not allow to add to Docker file because it should portable
 
