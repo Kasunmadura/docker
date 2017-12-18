@@ -20,7 +20,8 @@ This repo will help you to get undestanding on docker and it featuse
 
     docker stop containername
     docker rm containername/id
-    docker irm imagename
+    docker rmi imagename
+    docker rmi -f imagename
 
 #### Docker port EXPOSE
 
@@ -66,6 +67,24 @@ This repo will help you to get undestanding on docker and it featuse
     docker rm 'docker ps -aq'
     for i in $(docker ps -qa);do docker rm "$i";done
     cd /var/lib/docker/containers | rm dockerfile
+
+### Docker container rename
+
+    docker rename dbfdssdsaad kasunmaduratest
+
+### Docker event
+
+    docker events --since '1h'
+    docker events
+    docker kill dockername
+    docker events  -f event=attach
+
+### Docker Save and loading
+
+   docker commit dockername imagename
+   docker save --output centos.latest.tar centos:mine
+   gzip centos.latest.tar
+   docker load --input centos.latest.tar.gz
 
 
 #### Connect volume
