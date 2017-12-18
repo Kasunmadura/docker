@@ -6,7 +6,6 @@ This repo will help you to get undestanding on docker and it featuse
 
     docker run -it ubuntu:latest /bin/bash
 
-
 #### Daemon mode
 
     docker run -d ubuntu:latest /bin/bash
@@ -61,6 +60,7 @@ This repo will help you to get undestanding on docker and it featuse
     docker stats apacheweb5
 
 ### Removing previous containers
+
     docker rm container_name_or_id
     docker ps -a -q
     docker ps -qa | wc -l
@@ -86,8 +86,19 @@ This repo will help you to get undestanding on docker and it featuse
    gzip centos.latest.tar
    docker load --input centos.latest.tar.gz
 
+### Docker image history (only avaliable in image)
 
-#### Connect volume
+   docker history imagename  
+   docker history --no-trunc centos:mine
+   docker history --quiet centos:mine
+
+### Docker images tag
+
+    docker image tag 323132391a kasunapache:v.1 
+
+
+### Connect volume
+
 This volume default mount point is "/var/lib/docker/$dockerid/_data" and this will not allow to add to Docker file because it should portable
 
     docker run -it --name voltest1 -v /data centos:latest /bin/bash
