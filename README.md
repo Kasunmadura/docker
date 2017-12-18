@@ -24,9 +24,10 @@ This repo will help you to get undestanding on docker and it featuse
 
 #### Docker port EXPOSE
 
-    docker run -d ubuntu/apache:v1 -p 8080:80
-    docker run -d ubuntu/nginx:v1 -p 8080:80 8443:443
-    docker run -d ubuntu/apache:v1 -P
+    docker run -d -p 8080:80 ubuntu/apache:v1
+    docker run -d -p 8080:80 8443:443 ubuntu/nginx:v1
+    docker run -d -p 127.0.0.1:8089:80  nginx:latest
+    docker run -d -P ubuntu/apache:v1
 
 #### SSH to docker instance
 
