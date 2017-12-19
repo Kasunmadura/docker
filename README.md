@@ -94,8 +94,24 @@ This repo will help you to get undestanding on docker and it featuse
 
 ### Docker images tag
 
-    docker image tag 323132391a kasunapache:v.1 
+    docker image tag 323132391a kasunapache:v.1
 
+### Docker Custom Network
+
+    ip link add br10 type bridge
+    ip addr add 10.10.100.1/24 dev br10
+    ip link set br10 up
+    
+    docker -b br10 &
+
+    cat /etc/network/interface
+    auto br10
+    iface br10 inet static
+        address 10.10.100.1
+        netmask 255.255.255.0
+        bridge_port dummy0
+        bridge_stp off
+        bridge_fp 0
 
 ### Connect volume
 
