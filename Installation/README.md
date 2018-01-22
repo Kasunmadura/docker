@@ -38,7 +38,7 @@ ce=[VERSION]
         sudo systemctl enable docker && systemctl start docker && systemctl
         status docker
 
-*NOTE: Installing/upgrading covered separately from packages
+* NOTE: Installing/upgrading covered separately from packages
      Add a user for non-root use of Docker
 
             sudo usermod -aG user docker
