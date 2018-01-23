@@ -123,5 +123,5 @@ Will need to log out and back in, then check with ‘docker images’
 
 * Restore swarm config
 
-     cp swarm.tar /var/lib/docker
-     tar -xvf  swarm.tar
+      cp swarm.tar /var/lib/docker
+      tar -xvf  swarm.tar
