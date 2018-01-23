@@ -79,38 +79,38 @@ Will need to log out and back in, then check with ‘docker images’
 
 * install docker-ce into intance.then run below command to setup swarm manger
 
-    docker swarm init --advertise-addr 192.168.122.77 (iP for the manager server)
-    docker swarm join-token worker
-    docker swarm join-token manager
-    docker system info
+      docker swarm init --advertise-addr 192.168.122.77 (iP for the manager server)
+      docker swarm join-token worker
+      docker swarm join-token manager
+      docker system info
 
 * join anther manger to swarm cluster
 
-    docker swarm join --token SWMTKN-1-6bk0auvi4h1pyx4h1sxvq5bsqim01u8c5fpzssrwu5escrwb7u-cbgqk97ahec6ut5kkkdygulgp 192.168.122.77:2377
-    docker node list
-    docker node inspect docker-swarm (hostname for manger)
+      docker swarm join --token SWMTKN-1-6bk0auvi4h1pyx4h1sxvq5bsqim01u8c5fpzssrwu5escrwb7u-cbgqk97ahec6ut5kkkdygulgp 192.168.122.77:2377
+      docker node list
+      docker node inspect docker-swarm (hostname for manger)
 
 * leave from swarm cluster
 
-    docker swarm leave
-    docker node demote docker-swarm-2
+      docker swarm leave
+      docker node demote docker-swarm-2
 
     if any error : docker swarm init --force-new-cluster   
 
 * join with new worker
 
-    docker swarm join-token worker
-    docker swarm join --token SWMTKN-1-6bk0auvi4h1pyx4h1sxvq5bsqim01u8c5fpzssrwu5escrwb7u-72omfgu4hio2c4cq7dhmzqmcq 192.168.122.77:2377
+      docker swarm join-token worker
+      docker swarm join --token SWMTKN-1-6bk0auvi4h1pyx4h1sxvq5bsqim01u8c5fpzssrwu5escrwb7u-72omfgu4hio2c4cq7dhmzqmcq 192.168.122.77:2377
 
 
 ## Configure docker Backup and Restore
 
 * create a httpd service
 
-       docker service create --name bkupweb --publish 80:80 --replicas 2 httpd
-       docker service ps bkupweb
+      docker service create --name bkupweb --publish 80:80 --replicas 2 httpd
+      docker service ps bkupweb
 
-       service docker stop
+      service docker stop
 
 * backup swarm configs
 
