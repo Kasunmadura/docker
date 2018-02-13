@@ -71,7 +71,7 @@ Will need to log out and back in, then check with ‘docker images’
 
     eg: /etc/rsyslog.conf (ubuntu : uncomment below part)
 
-    # provides UDP syslog reception
+* provides UDP syslog reception
     module(load="imudp")
     input(type="imudp" port="514")
 
