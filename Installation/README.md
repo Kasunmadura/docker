@@ -129,3 +129,6 @@ Will need to log out and back in, then check with ‘docker images’
 ## Configure Universal Control Plane and Docker Trusted Registory
 
       docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 install --host-address 192.168.122.51 --interactive
+
+
+      docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 uninstall-ucp --interactive
