@@ -8,7 +8,7 @@ This repo will help you to get undestanding on docker and it featuse
 
 #### Daemon mode
 
-    docker run -d ubuntu:latest /bin/bash
+    docker run -d ubuntu:latest 
 
 #### Docker log/inspec
 
