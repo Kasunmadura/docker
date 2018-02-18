@@ -132,3 +132,21 @@ Will need to log out and back in, then check with ‘docker images’
 
 
       docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 uninstall-ucp --interactive
+
+## Configure DTR
+
+      docker run -it --rm docker/dtr install --ucp-node dockernode-1 --ucp-username admin --ucp-url https://192.168.122.51 --ucp-insecure-tls
+
+## Backup UCP and DTR
+
+      docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp backup > backup.tar
+
+      docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp backup --id dsdsdsadsdsdbdb > backup.tar
+
+      docker run -i --rm docker/dtr backup --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password> dtr-backup.tar
+
+## Restore UCP and DTR
+
+      docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp restore --id dsdsdsadsdsdbdb < backup.tar
+
+      docker run -i --rm docker/dtr restore --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password <  dtr-backup.tar
