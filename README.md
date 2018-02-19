@@ -20,6 +20,25 @@ download the all images related to hello-world
     docker pull -a hello-world
     docker pull -disable-contant-trust hello-world
 
+#### Docker images
+
+    docker images
+
+Show long name with docker images
+
+    docker images --digests
+    docker images --no-trunc
+
+    docker images  --filter "before=centos:6"
+
+Show only image ids
+
+    docker images -q
+
+Clean up images
+
+    for x in $(docker images -q) ; do docker rmi $x ; done
+
 
 #### Docker log/inspec
 
