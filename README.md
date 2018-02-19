@@ -2,6 +2,7 @@
 
 This repo will help you to get undestanding on docker and it featuse
 
+
 #### Interactive mode with tty
 
     docker run -it ubuntu:latest /bin/bash
@@ -9,6 +10,16 @@ This repo will help you to get undestanding on docker and it featuse
 #### Daemon mode
 
     docker run -d ubuntu:latest /bin/bash
+
+#### Docker pull
+
+    docker pull hello-world
+
+download the all images related to hello-world
+
+    docker pull -a hello-world
+    docker pull -disable-contant-trust hello-world
+
 
 #### Docker log/inspec
 
