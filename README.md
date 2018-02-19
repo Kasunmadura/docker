@@ -39,6 +39,46 @@ Clean up images
 
     for x in $(docker images -q) ; do docker rmi $x ; done
 
+Filter images     
+
+    docker search --filter stars=50 --filter is-official=true apache
+    docker search --limits 10 apache
+
+Save image Save and import
+
+    docker image save --output centos.test.tar centos:kasunapache
+    docker load --input centos.test.tar
+
+Or with diffent name
+
+    docker import centos.test.tar localimport:centos6
+
+Remove dangling images
+
+    docker image prune
+    docker image prune -a
+
+
+
+#### Docker image history (only avaliable in image)
+
+    docker history imagename  
+    docker history --no-trunc centos:mine
+    docker history --quiet centos:mine
+
+#### Docker images tag and customize the image
+
+    docker image tag centos:latest kasunapache:v.1
+    docker tag centos:6 mycentos:v1
+
+
+#### Docker Save and loading
+
+    docker commit dockername imagename
+    docker save --output centos.latest.tar centos:mine
+    gzip centos.latest.tar
+    docker load --input centos.latest.tar.gz
+
 
 #### Docker log/inspec
 
@@ -110,22 +150,6 @@ Clean up images
     docker kill dockername
     docker events  -f event=attach
 
-#### Docker Save and loading
-
-    docker commit dockername imagename
-    docker save --output centos.latest.tar centos:mine
-    gzip centos.latest.tar
-    docker load --input centos.latest.tar.gz
-
-#### Docker image history (only avaliable in image)
-
-    docker history imagename  
-    docker history --no-trunc centos:mine
-    docker history --quiet centos:mine
-
-#### Docker images tag
-
-    docker image tag 323132391a kasunapache:v.1
 
 #### Docker Custom Network
 
