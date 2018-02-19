@@ -58,7 +58,11 @@ Remove dangling images
     docker image prune
     docker image prune -a
 
+Get image details as output
 
+    docker image inspect centos:6 --format '{{.ContainerConfig.Hostname}}'
+    docker image inspect centos:6 --format '{{.ContainerConfig}}'
+    docker image inspect centos:6 --format '{{json .ContainerConfig}}'
 
 #### Docker image history (only avaliable in image)
 
