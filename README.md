@@ -100,9 +100,9 @@ download the all images related to hello-world
 
 #### Docker image history (only avaliable in image)
 
-   docker history imagename  
-   docker history --no-trunc centos:mine
-   docker history --quiet centos:mine
+    docker history imagename  
+    docker history --no-trunc centos:mine
+    docker history --quiet centos:mine
 
 #### Docker images tag
 
