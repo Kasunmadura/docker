@@ -9,7 +9,7 @@ This repo will help you to get undestanding on docker and it featuse
 
 #### Daemon mode
 
-    docker run -d ubuntu:latest 
+    docker run -d ubuntu:latest
 
 #### Docker pull
 
@@ -91,12 +91,12 @@ download the all images related to hello-world
     docker kill dockername
     docker events  -f event=attach
 
-### Docker Save and loading
+#### Docker Save and loading
 
-   docker commit dockername imagename
-   docker save --output centos.latest.tar centos:mine
-   gzip centos.latest.tar
-   docker load --input centos.latest.tar.gz
+    docker commit dockername imagename
+    docker save --output centos.latest.tar centos:mine
+    gzip centos.latest.tar
+    docker load --input centos.latest.tar.gz
 
 #### Docker image history (only avaliable in image)
 
