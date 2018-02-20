@@ -6,8 +6,13 @@ This repo will help you to get undestanding on docker and it featuse
 #### Interactive mode with tty
 
     docker run -it ubuntu:latest /bin/bash
+    docker run -it --rm ubuntu:latest /bin/bash
 
-#### Daemon mode
+#### ENV variable with deattach
+
+    docker run -d --env MYVAR=test --name test  centos:6
+
+#### Deattched mode
 
     docker run -d ubuntu:latest
 
@@ -37,7 +42,9 @@ Show only image ids
 
 Clean up images
 
+    docker rm `docker ps -a -q`
     for x in $(docker images -q) ; do docker rmi $x ; done
+
 
 Filter images     
 
@@ -103,7 +110,7 @@ Get image details as output
     docker run -d -p 127.0.0.1:8089:80  nginx:latest
     docker run -d -P ubuntu/apache:v1
 
-#### SSH to docker instance
+#### SSH to docker instance (docker attach exit will stop the container)
 
     docker attach dockername
     docker exec -it apacheweb6 bash
