@@ -1,16 +1,22 @@
-# This for the Echo test
+# This is for install apache web server
+# ARG should be from FROM
+ARG TAGVERSION=6
+FROM centos:${TAGVERSION}
+LABEL maintainer "kasunmaduraeng@gmail.com"
 
-FROM centos:latest
-MAINTAINER kasunmaduraeng@gmail.com
 
-RUN yum update -y
-RUN yum install -y httpd net-tools
+RUN yum update -y && \
+    yum install net-tools httpd -y && \
+    mkdir -p /run/httpd && \
+    rm -rf /run/http/*
 
-RUN echo "This is index file build during the image creation" > /var/www/html/index.html
+# COPY only work for files but ADD woring with urls
 
-# this will help to expose port
-# docker build -t centos/apache2:v1 .
-# docker run -d --name webserver1 -P centos/apache2:v1
+COPY  index.html /var/www/html/
+
+VOLUME /mymount
+
+CMD echo "check you ip address"
 
 EXPOSE 80
 

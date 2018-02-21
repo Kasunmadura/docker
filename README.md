@@ -90,6 +90,10 @@ Get image details as output
     gzip centos.latest.tar
     docker load --input centos.latest.tar.gz
 
+#### Docker container full running info
+
+    docker ps --no-trunc
+
 
 #### Docker log/inspec
 
