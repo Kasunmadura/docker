@@ -181,7 +181,7 @@ export container and consolidate
     docker events  -f event=attach
 
 
-### Setup docker registory
+#### Setup docker registory
 
 setup self sign or proper ssl cert (this is for self sign)
 
@@ -213,6 +213,21 @@ remote PC pull the custom docker image
     docker pull kasundomain.com:5000/busybox
 
 Note: we have to copy /etc/docker/certs.d/kasundomain:5000/ca.crt to all docker hosts to connect to this registry
+
+HTTP API request and get more informations
+
+    curl --insecure -u "test:password" https://kasundomain.com:5000/v2/_catalog
+    {"repositories":["mybusybox"]}
+
+    wget --no-check-certificate --http-user=test --http-password=password https://kasundomain.com:5000/v2/_catalog
+
+Manifest info
+
+    curl --insecure -u "test:password" https://kasundomain.com:5000/v2/mybusybox/manifests/latest
+
+Tags info
+
+    curl --insecure -u "test:password" https://kasundomain.com:5000/v2/mybusybox/tags/list
 
 
 #### Docker Custom Network
