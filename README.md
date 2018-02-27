@@ -181,6 +181,40 @@ export container and consolidate
     docker events  -f event=attach
 
 
+### Setup docker registory
+
+setup self sign or proper ssl cert (this is for self sign)
+
+    mkdir certs auth
+    apt-get install open-ssl
+    openssl  req -newkey rsa:4096 -nodes -sha256  -keyout  certs/dockerrepo.key -x509 -days 365 -out certs/dockerrepo.crt  -subj /CN=kasundomain.com
+
+setup localhost entry or DNS entry for your domain (default port 5000)
+
+    sudo mkdir -p  /etc/docker/certs.d/kasundomain.com:5000
+    cp /home/docker/certs/dockerrepo.crt /etc/docker/certs.d/kasundomain.com:\5000/ca.crt
+    docker pull registry:2
+    docker run --entrypoint htpasswd  registry:2 -Bbn test password > auth/htpasswd
+
+minimum requiment
+
+    docker run  -d -p 5000:5000  -v /home/docker/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/dockerrepo.crt -e REGISTRY_HTTP_TLS_KEY=/certs/dockerrepo.key
+
+with htpasswd
+
+    docker run  -d -p 5000:5000  -v /home/docker/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/dockerrepo.crt -e REGISTRY_HTTP_TLS_KEY=/certs/dockerrepo.key -v /home/docker/auth:/auth -e REGISTRY_AUTH=htpasswd -e REGISTRY_AUTH_HTPASSWD_REALM="Registry Realm" -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd registry:2
+
+    docker login kasundomain.com:5000
+    docker push  kasundomain.com:5000/busybox
+
+remote PC pull the custom docker image
+
+    docker login kasundomain.com:5000
+    docker pull kasundomain.com:5000/busybox
+
+Note: we have to copy /etc/docker/certs.d/kasundomain:5000/ca.crt to all docker hosts to connect to this registry
+
+
 #### Docker Custom Network
 
     ip link add br10 type bridge
