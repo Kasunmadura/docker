@@ -77,6 +77,21 @@ Get image details as output
     docker history --no-trunc centos:mine
     docker history --quiet centos:mine
 
+### Image layer with union file system (save some space)
+
+docker image with singel layer (experiment features should enable)
+
+    docker build --pull --no-cache --squash -t optimized:v1 .
+
+export container and consolidate
+
+    docker export kasuntest > mybuild.tar
+    docker import mybuild.tar mybuild:importv5
+
+    docker image history mybuild:importv5
+
+
+
 #### Docker images tag and customize the image
 
     docker image tag centos:latest kasunapache:v.1
