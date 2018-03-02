@@ -235,11 +235,9 @@ Docker service restart it wil restart
 
     docker run -d --name testweb --restart always httpd
 
-If we  manully stop the docker it not started 
+If we  manully stop the docker it not started
 
     docker run -d --name testweb --restart unless-stopped httpd
-
-
 
 
 #### Docker Custom Network
