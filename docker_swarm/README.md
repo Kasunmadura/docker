@@ -47,7 +47,7 @@ ce=[VERSION]
 Restart Docker, check /var/run/docker.sock
 Will need to log out and back in, then check with ‘docker images’
 
-## Configure Storge and logging driver
+### Configure Storge and logging driver
 
 * We can use /etc/docker/deamon.json for make this config.To see current config we can run below command
 
@@ -75,7 +75,7 @@ Will need to log out and back in, then check with ‘docker images’
     module(load="imudp")
     input(type="imudp" port="514")
 
-## Configure docker Swarm
+### Configure docker Swarm
 
 * install docker-ce into intance.then run below command to setup swarm manger
 
@@ -103,7 +103,7 @@ Will need to log out and back in, then check with ‘docker images’
       docker swarm join --token SWMTKN-1-6bk0auvi4h1pyx4h1sxvq5bsqim01u8c5fpzssrwu5escrwb7u-72omfgu4hio2c4cq7dhmzqmcq 192.168.122.77:2377
 
 
-## Configure docker Backup and Restore
+### Configure docker Backup and Restore
 
 * create a httpd service
 
@@ -126,18 +126,18 @@ Will need to log out and back in, then check with ‘docker images’
       cp swarm.tar /var/lib/docker
       tar -xvf  swarm.tar
 
-## Configure Universal Control Plane and Docker Trusted Registory
+### Configure Universal Control Plane and Docker Trusted Registory
 
       docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 install --host-address 192.168.122.51 --interactive
 
 
       docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 uninstall-ucp --interactive
 
-## Configure DTR
+### Configure DTR
 
       docker run -it --rm docker/dtr install --ucp-node dockernode-1 --ucp-username admin --ucp-url https://192.168.122.51 --ucp-insecure-tls
 
-## Backup UCP and DTR
+### Backup UCP and DTR
 
       docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp backup > backup.tar
 
@@ -145,7 +145,7 @@ Will need to log out and back in, then check with ‘docker images’
 
       docker run -i --rm docker/dtr backup --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password> dtr-backup.tar
 
-## Restore UCP and DTR
+### Restore UCP and DTR
 
       docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp restore --id dsdsdsadsdsdbdb < backup.tar
 
