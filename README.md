@@ -229,6 +229,18 @@ Tags info
 
     curl --insecure -u "test:password" https://kasundomain.com:5000/v2/mybusybox/tags/list
 
+#### Container restart police
+
+Docker service restart it wil restart
+
+    docker run -d --name testweb --restart always httpd
+
+If we  manully stop the docker it not started 
+
+    docker run -d --name testweb --restart unless-stopped httpd
+
+
+
 
 #### Docker Custom Network
 
