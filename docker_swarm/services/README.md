@@ -26,3 +26,7 @@ verify the stability (this default in future versions)
 Memory and CPU limits (reserve : hard limit, limit: softlimit)
 
     docker service update --limit-cpu=.5 --reserve-cpu=1  --limit-memory=128m --reserve-memory=256m testweb
+
+Docker multiple service update with
+
+    docker services scale testweb=2 testnginx=5
