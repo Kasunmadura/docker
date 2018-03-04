@@ -126,6 +126,24 @@ Will need to log out and back in, then check with ‘docker images’
       cp swarm.tar /var/lib/docker
       tar -xvf  swarm.tar
 
+
+### Docker Swarm auto lock
+
+    docker update --autolock=true
+    service docker stop
+
+when we start docker to see swarm config you have to enter the key
+
+    service docker stop
+    docker swarm unlock
+    docker swarm update --autolock=false
+
+Docker swarm unlock key display and enable rotation
+
+    docker swarm unlock-key
+    docker swarm unlock-key --rotate
+
+
 ### Configure Universal Control Plane and Docker Trusted Registory
 
       docker container run --rm  -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.4 install --host-address 192.168.122.51 --interactive
