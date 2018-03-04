@@ -2,7 +2,7 @@
 
 Using docker service is the solution to managing containers deployed in highly available, easy scalable cluster implementation.
 
-![alt text] (https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/docker-swarm-nginx.png)
+[![N|Solid] (https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/docker-swarm-nginx.png)
 
 ###  Start basic docker service
 
