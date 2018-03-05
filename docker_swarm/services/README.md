@@ -23,10 +23,28 @@ verify the stability (this default in future versions)
 
     docker service update --replicas 5 --detach=false testweb
 
-Memory and CPU limits (reserve : hard limit, limit: softlimit)
+#### Memory and CPU limits (reserve : hard limit, limit: softlimit)
 
     docker service update --limit-cpu=.5 --reserve-cpu=1  --limit-memory=128m --reserve-memory=256m testweb
 
-Docker multiple service update with
+#### Docker multiple service update with
 
     docker services scale testweb=2 testnginx=5
+
+#### Docker global mode  (you could'nt scale or change)
+
+    docker service create --name testnginx --mode global -p 8080:80  nginx
+
+Note: No mode update in docker service update
+
+
+#### Host name template  
+
+   docker service create   --name test-1951   --hostname="{{.Node.Hostname}}-{{.Service.Name}}"   nginx
+   
+   docker inspect --format={{.Config.Hostname}} test-1951.1.wuclmetbjent9t60rguqknth9
+
+   docker inspect test-1951.1.wuclmetbjent9t60rguqknth9
+
+
+(Note: node id is NAME+ID)
