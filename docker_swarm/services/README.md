@@ -40,11 +40,11 @@ Note: No mode update in docker service update
 
 #### Hostname template  
 
-   docker service create   --name test-1951   --hostname="{{.Node.Hostname}}-{{.Service.Name}}"   nginx
+    docker service create   --name test-1951   --hostname="{{.Node.Hostname}}-{{.Service.Name}}"   nginx
 
-   docker inspect --format={{.Config.Hostname}} test-1951.1.wuclmetbjent9t60rguqknth9
+    docker inspect --format={{.Config.Hostname}} test-1951.1.wuclmetbjent9t60rguqknth9
 
-   docker inspect test-1951.1.wuclmetbjent9t60rguqknth9
+    docker inspect test-1951.1.wuclmetbjent9t60rguqknth9
 
 
 (Note: node id is NAME+ID)
