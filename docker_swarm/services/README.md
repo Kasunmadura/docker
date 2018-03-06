@@ -46,8 +46,11 @@ Note: No mode update in docker service update
 
     docker inspect test-1951.1.wuclmetbjent9t60rguqknth9
 
-
 (Note: node id is NAME+ID)
+
+
+#### docker compose with docker stack deploy
+
 
 
 #### Node labels
