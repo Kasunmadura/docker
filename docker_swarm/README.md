@@ -168,3 +168,14 @@ Docker swarm unlock key display and enable rotation
       docker container run --log-driver none --rm  -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp restore --id dsdsdsadsdsdbdb < backup.tar
 
       docker run -i --rm docker/dtr restore --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password <  dtr-backup.tar
+
+
+#### Tips
+
+Remove manage work as worker
+
+    docker node update -avaliability drain [node]
+
+Force Rebalance
+
+    docker service update --force
