@@ -114,6 +114,7 @@ export container and consolidate
 
     docker logs dockername
     docker inspect dockername
+    docker inspect kasunstack_apiweb1 --format={{.Endpoint.Ports}}
 
 #### Docker stop/delete
 
