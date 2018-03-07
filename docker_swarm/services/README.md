@@ -49,9 +49,13 @@ Note: No mode update in docker service update
 (Note: node id is NAME+ID)
 
 
-#### docker compose with docker stack deploy
+#### docker swarm service  volume creation
 
+    docker volume create my-web
+    cat "hi kasun" >  /var/lib/docker/volumes/my-mount/_data/test.html
+    docker service create --name testweb -p 80:80 --mount source=my-mount,target=/var/www/html --replicas 3 httpd
 
+issue is this volumes content not replicate over the workers 
 
 #### Node labels
 
