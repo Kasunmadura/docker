@@ -48,6 +48,18 @@ Note: No mode update in docker service update
 
 (Note: node id is NAME+ID)
 
+#### Delete docker unuse images
+
+    docker systems df
+
+remove unwated images network volumes
+
+    docker system prune
+    docker system prune --volume
+
+remove all thing (images,network,volumes)
+
+    docker system prune -a
 
 #### docker swarm service  volume creation
 
@@ -55,7 +67,7 @@ Note: No mode update in docker service update
     cat "hi kasun" >  /var/lib/docker/volumes/my-mount/_data/test.html
     docker service create --name testweb -p 80:80 --mount source=my-mount,target=/var/www/html --replicas 3 httpd
 
-issue is this volumes content not replicate over the workers 
+issue is this volumes content not replicate over the workers
 
 #### Node labels
 
