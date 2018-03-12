@@ -49,7 +49,7 @@ Will need to log out and back in, then check with ‘docker images’
 
 ### Configure Storge and logging driver
 
-* We can use /etc/docker/deamon.json for make this config.To see current config we can run below command
+* We can use /etc/docker/daemon.json for make this config.To see current config we can run below command
 
       docker info | grep log
       docker info | grep driver
