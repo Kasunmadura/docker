@@ -157,10 +157,12 @@ export container and consolidate
 
 
 #### Docker network
+
     docker network ls --no-trunc
     docker network inspect bridge
     docker network create --subnet 10.0.1.0/24 --gateway 10.0.1.1 kasunbridge01
     docker network rm mybridge01
+
 
 
 #### Docker network attache to docker instance
@@ -171,6 +173,23 @@ export container and consolidate
 #### Setup specific IP for container (Not working for default bridge)
 
     docker run  -id --name nettest07 --network kasunbridge04 --ip 10.101.4.100 centos:latest
+
+#### Docker running con connect to new network
+
+    docker network connect=192.168.4.10 kasunnetwork1 testweb
+    docker network disconnect kasunnetwork1 testweb  
+
+#### Change dns service on docker
+
+Normally this config alway use host server /etc/resolv.conf it not overwrite
+
+    docker run -d --name testweb --dns=8.8.8.8 --dns=8.8.8.4 httpd
+
+    root@swarm-1:/etc/docker# cat /etc/docker/daemon.json
+    {
+	     "dns": ["8.8.8.8", "8.8.4.4"]
+    }
+    root@swarm-1:/etc/docker# service docker restart
 
 #### Docker Inspect
 
