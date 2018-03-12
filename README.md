@@ -138,6 +138,24 @@ export container and consolidate
 #### Docker build image with docker file (-t tag )
     docker build -t ubuntu/apache2:v1 .
 
+#### Docker Custom Network
+
+    ip link add br10 type bridge
+    ip addr add 10.10.100.1/24 dev br10
+    ip link set br10 up
+
+    docker -b br10 &
+
+    cat /etc/network/interface
+    auto br10
+    iface br10 inet static
+        address 10.10.100.1
+        netmask 255.255.255.0
+        bridge_port dummy0
+        bridge_stp off
+        bridge_fp 0
+
+
 #### Docker network
     docker network ls --no-trunc
     docker network inspect bridge
@@ -240,23 +258,6 @@ If we  manully stop the docker it not started
 
     docker run -d --name testweb --restart unless-stopped httpd
 
-
-#### Docker Custom Network
-
-    ip link add br10 type bridge
-    ip addr add 10.10.100.1/24 dev br10
-    ip link set br10 up
-
-    docker -b br10 &
-
-    cat /etc/network/interface
-    auto br10
-    iface br10 inet static
-        address 10.10.100.1
-        netmask 255.255.255.0
-        bridge_port dummy0
-        bridge_stp off
-        bridge_fp 0
 
 #### Connect volume
 
