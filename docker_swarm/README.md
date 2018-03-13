@@ -193,7 +193,12 @@ ingress
   providing the routing mesh
 Docker Gateway bridge
   Special bridge network that allows overlay networks (including ingress)
-  Automatical create when a swarm is initilization 
+  Automatical create when a swarm is initilization
+
+### Docker logs
+
+      docker logs testweb
+      docker service log  
 
 #### Tips
 
