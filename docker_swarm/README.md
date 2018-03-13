@@ -226,6 +226,24 @@ Docker swarm unlock key display and enable rotation
 
 ![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/role1.png)
 
+
+#### Docker ucp client bundle
+
+Create user and add into role in UCP.And download ucp bundle
+
+    unzip ucp-bundle-kasun.zip
+    docker --version
+    export DOCKER_HOST=tcp://ucp.kasun.com:443
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_CERT_PATH=/home/kasun/Download/ucp
+    eval $(<env.sh)
+
+Then we can see all images in DRT server.(better to setup proper role base access for the user)
+
+    docker images
+    docker serveice create --name testweb --replica 3 httpd
+
+
 #### Tips
 
 Remove manage work as worker
