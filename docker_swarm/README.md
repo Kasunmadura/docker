@@ -227,6 +227,10 @@ Docker swarm unlock key display and enable rotation
 ![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/role1.png)
 
 
+#### Docker image trust checker 
+
+The variable DOCKER_CONTENT_TRUST set to '1' will inform the Docker daemon to only pull trusted content within the shell it is set in.
+
 #### Docker ucp client bundle
 
 Create user and add into role in UCP.And download ucp bundle
