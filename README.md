@@ -123,11 +123,15 @@ export container and consolidate
     docker rmi imagename
     docker rmi -f imagename
 
+
 #### Docker port EXPOSE
 
     docker run -d -p 8080:80 ubuntu/apache:v1
     docker run -d -p 8080:80 8443:443 ubuntu/nginx:v1
     docker run -d -p 127.0.0.1:8089:80  nginx:latest
+
+Expose ports which are mention in build
+
     docker run -d -P ubuntu/apache:v1
 
 #### SSH to docker instance (docker attach exit will stop the container)

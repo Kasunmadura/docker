@@ -170,6 +170,31 @@ Docker swarm unlock key display and enable rotation
       docker run -i --rm docker/dtr restore --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password <  dtr-backup.tar
 
 
+### Adding overlay network (interconnet the containers)
+
+      docker network create --driver=overlay --subnet=192.168.6.0/24 overlay0
+      docker service create --name testweb --network overlay0 -p 80:80 --replicas 3 httpd
+      docker service update --network-rm ingress testweb
+
+### Network driver types
+
+Bridge
+  Default driver,Same host network
+None
+  no network access, only access from host, can use docker attach to attache to container
+Host
+  it call Host Only network, access to service can only be provided by exposing Container service ports to the host system
+overlay
+  Allow commuication all docker daemons that are paricipating in the swarm-1
+  use Swarm Scope driver
+  default swarm config
+ingress
+  Special overlay network that load balances network traffic amongest a giveen service's working nodes
+  providing the routing mesh
+Docker Gateway bridge
+  Special bridge network that allows overlay networks (including ingress)
+  Automatical create when a swarm is initilization 
+
 #### Tips
 
 Remove manage work as worker
