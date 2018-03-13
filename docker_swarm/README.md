@@ -222,7 +222,7 @@ Docker swarm unlock key display and enable rotation
 
 ![Roles](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/roles.png)
 
-##### Role visualization
+##### Role Visualization
 
 ![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/role1.png)
 
@@ -238,10 +238,19 @@ Create user and add into role in UCP.And download ucp bundle
     export DOCKER_CERT_PATH=/home/kasun/Download/ucp
     eval $(<env.sh)
 
-Then we can see all images in DRT server.(better to setup proper role base access for the user)
+Then we can see all images in DRT server images and can control for UCP with in user machine.(better to setup proper role base access for the user)
 
     docker images
     docker serveice create --name testweb --replica 3 httpd
+
+
+#### Mutually Authenticated TLS
+
+implementation that was chosen to secure that communication.Any time swarm is initialized, a self-signed Cert Autority is generated and issue certs to every node to facilitate those secure communication.
+
+This trasaction consists of a 2 layer (Record and Handshake) protocal that provides both security and authentication.
+
+![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/Mutual_TLS.png)
 
 
 #### Tips
