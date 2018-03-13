@@ -180,18 +180,24 @@ Docker swarm unlock key display and enable rotation
 
 Bridge
       Default driver,Same host network
+
 None
+
       no network access, only access from host, can use docker attach to attache to container
 Host
+
       it call Host Only network, access to service can only be provided by exposing Container service ports to the host system
 overlay
+
       Allow commuication all docker daemons that are paricipating in the swarm-1
       use Swarm Scope driver
       default swarm config
 ingress
+
       Special overlay network that load balances network traffic amongest a giveen service's working nodes
       providing the routing mesh
 Docker Gateway bridge
+
       Special bridge network that allows overlay networks (including ingress)
       Automatical create when a swarm is initilization
 
