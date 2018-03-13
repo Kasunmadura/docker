@@ -170,6 +170,8 @@ Docker swarm unlock key display and enable rotation
       docker run -i --rm docker/dtr restore --ucp-insecure-tls --ucp-url https://192.168.122.51 --ucp-username admin --upc-password password <  dtr-backup.tar
 
 
+![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/network.png)
+
 ### Adding overlay network (interconnet the containers)
 
       docker network create --driver=overlay --subnet=192.168.6.0/24 overlay0
@@ -197,7 +199,7 @@ Docker swarm unlock key display and enable rotation
 
       Special overlay network that load balances network traffic amongest a giveen service's working nodes
       providing the routing mesh
-    
+
 ###### Docker Gateway bridge
 
       Special bridge network that allows overlay networks (including ingress)
