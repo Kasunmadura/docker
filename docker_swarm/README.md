@@ -210,6 +210,22 @@ Docker swarm unlock key display and enable rotation
       docker logs testweb
       docker service log  
 
+
+### Docker Swarm Roles/User
+
+##### Users
+
+      1. Adminstrator - can make changes to the UCP swarm.
+      2. Regular User - have permissions that range from full control to no access to any number of resource.
+
+##### Roles
+
+![Roles](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/roles.png)
+
+##### Role visualization
+
+![](https://github.com/Kasunmadura/docker/blob/master/docker_swarm/services/role1.png)
+
 #### Tips
 
 Remove manage work as worker
